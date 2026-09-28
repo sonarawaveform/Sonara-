@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sonara Waveform – Streaming for AI-made music</title>
+<meta name="description" content="Sonara Waveform is a subscription streaming service for AI-generated music. €4.99 per month, cancel anytime.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f2ff;--ink:#231650;--mute:#5d5680;--acc:#0f9d94;--card:#fff;--line:#ddd6f5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1338;--ink:#f1edff;--mute:#b3aad6;--acc:#3fd6c9;--card:#261b4a;--line:#3a2d6b}}
+:root[data-theme="dark"]{--bg:#1b1338;--ink:#f1edff;--mute:#b3aad6;--acc:#3fd6c9;--card:#261b4a;--line:#3a2d6b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Bricolage Grotesque",system-ui,-apple-system,Segoe UI,sans-serif}
+.w{max-width:720px;margin:0 auto;padding:0 22px}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:19px}
+nav a{margin-left:14px;font-weight:400;font-size:14px}
+header{flex-wrap:wrap;gap:6px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.c b{display:block;margin-bottom:4px}
+details{border-bottom:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:600}
+form{display:grid;gap:10px;margin-top:14px}input,textarea{font:inherit;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
+a{color:inherit}
+h1{font-size:clamp(38px,9vw,64px);line-height:1.02;margin:28px 0 16px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:26px;margin:0 0 10px;letter-spacing:-.01em}
+h3{font-size:18px;margin:22px 0 4px}
+.lead{color:var(--mute);font-size:19px;max-width:34em}
+svg.wave{width:100%;height:auto;margin:26px 0 8px;display:block}
+.btn{display:inline-block;background:var(--acc);color:#0b2b28;font-weight:600;padding:14px 26px;border-radius:999px;text-decoration:none;margin-top:14px}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+section{padding:38px 0;border-top:1px solid var(--line)}
+.price{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.price b{font-size:44px;font-weight:800}
+ul{padding-left:20px;margin:10px 0}
+p{margin:8px 0}
+small,.fine{color:var(--mute);font-size:14px}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.now{font-weight:800;font-size:22px}.ctl{display:flex;align-items:center;gap:12px;margin:12px 0}
+.ctl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer}
+.ctl button.p{background:var(--acc);color:#0b2b28;border:0;width:58px;height:58px}
+input[type=range]{padding:0;accent-color:var(--acc);border:0;background:none}
+.tl{list-style:none;padding:0;margin:12px 0 0}.tl li{padding:12px 6px;border-top:1px solid var(--line);cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+.tl li.on{color:var(--acc);font-weight:600}
+</style>
+</head>
+<body>
+<div class="w">
+<header><span>Sonara Waveform</span><nav><a href="#player">Listen</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#artists">Artists</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav></header>
+
+<main>
+<h1>Streaming built for AI-made music.</h1>
+<p class="lead">Sonara Waveform is a subscription streaming service where every track is created with AI tools. Listen without limits, and discover new artists making music in new ways.</p>
+<svg class="wave" viewBox="0 0 600 90" aria-hidden="true" fill="var(--acc)">
+<g id="bars"></g>
+</svg>
+<a class="btn" href="https://app.paythen.co/company/Sonara/plan/ibgl3giwvj">Subscribe for €4.99/month</a>
+
+<section id="player">
+<h2>Listen now</h2>
+<div class="pl">
+<div class="now" id="tt">Midnight Drift</div>
+<small id="ta">Sonara demo · AI-generated</small>
+<div class="ctl"><button id="pv" aria-label="Previous">⏮</button><button id="pp" class="p" aria-label="Play">▶</button><button id="nx" aria-label="Next">⏭</button>
+<input id="vol" type="range" min="0" max="1" step="0.05" value="0.6" aria-label="Volume" style="max-width:130px"></div>
+<input id="sk" type="range" min="0" max="100" value="0" aria-label="Progress" disabled>
+<small id="tm">0:00 / 1:30</small>
+<ul class="tl" id="tl"></ul>
+<p class="fine">Free preview: these demo tracks are generated live in your browser. Subscribe for the full catalogue from Sonara artists.</p>
+</div>
+</section>
+
+<section id="how">
+<h2>How it works</h2>
+<div class="g">
+<div class="c"><b>1. Subscribe</b>Pick the monthly plan and pay securely by card. Confirmation and a manage-plan link arrive by email.</div>
+<div class="c"><b>2. Listen</b>Stream the full catalogue of AI-generated music, all clearly labelled.</div>
+<div class="c"><b>3. Cancel any time</b>Use the link in your email. You keep access until the paid month ends.</div>
+</div>
+</section>
+
+<section id="genres">
+<h2>What you will hear</h2>
+<p>Independent creators publish original AI-generated tracks across genres:</p>
+<div class="g">
+<div class="c"><b>Lo-fi and chill</b>Study and focus beats</div>
+<div class="c"><b>Synthwave</b>Retro electronic</div>
+<div class="c"><b>Ambient</b>Calm and atmospheric</div>
+<div class="c"><b>Pop and dance</b>Vocal-driven originals</div>
+<div class="c"><b>Cinematic</b>Orchestral and epic</div>
+<div class="c"><b>Latin and world</b>Rhythms from everywhere</div>
+</div>
+</section>
+
+<section id="artists">
+<h2>Publish your AI music</h2>
+<p>Make songs with tools like Suno? Apply to publish on Sonara Waveform. You must own or hold the commercial rights to every track you submit. Send us your details and we will reply by email.</p>
+<form id="af">
+<input name="n" placeholder="Artist name" required autocomplete="name">
+<input name="e" type="email" placeholder="Your email" required autocomplete="email">
+<input name="l" placeholder="Link to your music (Suno profile, etc.)">
+<textarea name="m" rows="3" placeholder="Tell us about your music"></textarea>
+<button class="btn" type="submit">Send application</button>
+</form>
+<p class="fine">This opens your email app with the application filled in.</p>
+</section>
+
+<section id="faq">
+<h2>Questions</h2>
+<details><summary>What is Sonara Waveform?</summary><p>A subscription streaming service for music created with AI tools.</p></details>
+<details><summary>How much does it cost?</summary><p>€4.99 per month, billed monthly in euros. One plan gives access to everything.</p></details>
+<details><summary>How do I cancel?</summary><p>Use the manage-plan link in your payment email, or write to us and we will cancel it for you.</p></details>
+<details><summary>Is the music labelled as AI?</summary><p>Yes. Every track is created with AI tools and labelled as such.</p></details>
+<details><summary>Is my payment safe?</summary><p>Payments are handled by a regulated payment provider. We never see or store your card number.</p></details>
+</section>
+
+<section id="about">
+<h2>What you get</h2>
+<ul>
+<li>Unlimited streaming of AI-generated songs from independent creators</li>
+<li>New tracks added regularly by enrolled artists</li>
+<li>Every track is labelled as AI-generated</li>
+<li>Cancel any time from the link in your payment email</li>
+</ul>
+<h3>For artists</h3>
+<p>Creators who make songs with AI tools such as Suno can apply to publish on Sonara Waveform. Artists must own or hold the commercial rights to every track they upload.</p>
+</section>
+
+<section id="pricing">
+<h2>Pricing</h2>
+<div class="price">
+<b>€4.99</b> per month
+<p>One plan, all music. Billed monthly in euros, starting on the day you subscribe. Prices include applicable taxes where required.</p>
+<a class="btn" href="https://app.paythen.co/company/Sonara/plan/ibgl3giwvj">Subscribe</a>
+<p class="fine">Payments are processed securely by our payment provider. We never see or store your card details.</p>
+</div>
+</section>
+
+<section id="terms">
+<h2>Terms of service</h2>
+<p>By subscribing you agree to these terms. Sonara Waveform provides access to a streaming catalogue of AI-generated music for personal, non-commercial listening.</p>
+<h3>Subscription and cancellation</h3>
+<p>Your subscription renews every month until you cancel. Cancel at any time using the manage-plan link in your payment confirmation email; you keep access until the end of the paid period.</p>
+<h3>Refunds</h3>
+<p>If you are not satisfied, email us within 7 days of your first payment for a full refund. After that, payments for the current month are non-refundable, except where the law says otherwise.</p>
+<h3>Acceptable use</h3>
+<p>Do not copy, download, redistribute or resell tracks, or share your account. We may suspend accounts that break these rules.</p>
+<h3>AI-generated content</h3>
+<p>All music on Sonara Waveform is created with AI tools and labelled as such. Artists confirm they hold the rights to what they upload. To report a rights concern, contact us and we will review it promptly.</p>
+</section>
+
+<section id="privacy">
+<h2>Privacy policy</h2>
+<p>We collect only what we need to run the service: your name, email address and subscription status. Payments are handled by our payment provider, and we do not store card numbers. We do not sell your data. You can ask us to access, correct or delete your data at any time by emailing us.</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Questions, refunds or rights concerns:</p>
+<p><a href="mailto:Soasoade@gmail.com">Soasoade@gmail.com</a></p>
+<p>Sonara Waveform, operated by Alozie Sunday Samuel<br>Urbanizacion Costa Nagueles 2<br>29602 Marbella, Málaga, Spain</p>
+</section>
+</main>
+
+<footer>© 2026 Sonara Waveform, Alozie Sunday Samuel. All rights reserved.</footer>
+</div>
+<script>
+var g=document.getElementById('bars'),h=[20,38,60,34,72,48,84,40,66,28,76,52,88,44,62,30,70,46,80,36,58,24,68,50,78,32,64,42,74,26];
+for(var i=0;i<60;i++){var v=h[i%h.length]*(0.6+0.4*Math.abs(Math.sin(i/5)));var r=document.createElementNS('http://www.w3.org/2000/svg','rect');r.setAttribute('x',i*10);r.setAttribute('y',45-v/2);r.setAttribute('width',5);r.setAttribute('height',v);r.setAttribute('rx',2.5);g.appendChild(r);}
+</script>
+<script>
+document.getElementById('af').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+var b='Artist name: '+f.n.value+'\nEmail: '+f.e.value+'\nMusic link: '+f.l.value+'\n\n'+f.m.value;
+location.href='mailto:Soasoade@gmail.com?subject='+encodeURIComponent('Artist application: '+f.n.value)+'&body='+encodeURIComponent(b);});
+
+(function(){
+var T=[{n:'Midnight Drift',bpm:70,r:57,sc:[0,3,5,7,10],w:'triangle',d:0},{n:'Neon Coast',bpm:104,r:52,sc:[0,2,3,7,8],w:'sawtooth',d:1},{n:'Still Water',bpm:56,r:50,sc:[0,2,4,7,9],w:'sine',d:0},{n:'Golden Hour',bpm:92,r:55,sc:[0,2,4,7,9],w:'triangle',d:1}],LEN=90;
+var ac,mg,cur=0,on=false,st=0,nt=0,t0=0,tm=null,seed=1;
+var $=function(i){return document.getElementById(i)};
+function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+function f(m){return 440*Math.pow(2,(m-69)/12)}
+function note(m,t,d,w,v){var o=ac.createOscillator(),g=ac.createGain();o.type=w;o.frequency.value=f(m);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mg);o.start(t);o.stop(t+d+.05)}
+function drum(t,k){var o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(k?140:900,t);if(k)o.frequency.exponentialRampToValueAtTime(40,t+.15);o.type=k?'sine':'square';g.gain.setValueAtTime(k?.5:.04,t);g.gain.exponentialRampToValueAtTime(.0001,t+(k?.2:.04));o.connect(g);g.connect(mg);o.start(t);o.stop(t+.25)}
+function step(t,i){var k=T[cur],sc=k.sc,b=k.r;
+if(i%16==0){[0,2,4].forEach(function(x){note(b+sc[x%5]+(x>4?12:0),t,60/k.bpm*7,k.w,.06)})}
+if(i%16==8){[1,3].forEach(function(x){note(b+sc[x]+12,t,60/k.bpm*4,k.w,.05)})}
+if(i%2==0&&rnd()<.75){note(b+12+sc[Math.floor(rnd()*5)]+(rnd()<.3?12:0),t,60/k.bpm*.9,k.w,.09)}
+if(i%16==0)note(b-12+sc[0],t,60/k.bpm*3,'sine',.16);
+if(k.d){if(i%4==0)drum(t,1);if(i%2==1)drum(t,0)}}
+function sched(){var k=T[cur],sd=60/k.bpm/2;while(nt<ac.currentTime+.2){step(nt,st++);nt+=sd}
+var e=ac.currentTime-t0;if(e>=LEN){go(cur+1,true);return}ui(e)}
+function fm(x){x=Math.floor(x);return Math.floor(x/60)+':'+('0'+x%60).slice(-2)}
+function ui(e){$('sk').value=e/LEN*100;$('tm').textContent=fm(e)+' / '+fm(LEN)}
+function show(){$('tt').textContent=T[cur].n;[].forEach.call($('tl').children,function(l,i){l.className=i==cur?'on':''});$('pp').textContent=on?'⏸':'▶'}
+function start(){if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)();mg=ac.createGain();mg.gain.value=+$('vol').value;mg.connect(ac.destination)}
+ac.resume();seed=cur*977+13;st=0;nt=ac.currentTime+.1;t0=nt;clearInterval(tm);tm=setInterval(sched,40);on=true;show()}
+function stop(){clearInterval(tm);if(ac)ac.suspend();on=false;show()}
+function go(i,play){cur=(i+T.length)%T.length;clearInterval(tm);ui(0);if(play||on)start();else show()}
+T.forEach(function(k,i){var l=document.createElement('li');l.innerHTML='<span>'+k.n+'</span><small>'+fm(LEN)+'</small>';l.onclick=function(){go(i,true)};$('tl').appendChild(l)});
+$('pp').onclick=function(){on?stop():start()};
+$('nx').onclick=function(){go(cur+1,true)};$('pv').onclick=function(){go(cur-1,true)};
+$('vol').oninput=function(){if(mg)mg.gain.value=+this.value};
+show();
+})();
+</script>
+</body>
+</html>
